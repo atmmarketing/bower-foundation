@@ -333,6 +333,7 @@ $large: $large-up;
 $cursor-auto-value: auto !default;
 $cursor-crosshair-value: crosshair !default;
 $cursor-default-value: default !default;
+$cursor-disabled-value: not-allowed !default;
 $cursor-pointer-value: pointer !default;
 $cursor-help-value: help !default;
 $cursor-text-value: text !default;
@@ -345,11 +346,16 @@ $cursor-text-value: text !default;
   // Forward slash placed around everything to convince PhantomJS to read the value.
 
   meta.foundation-version {
-    font-family: "/5.4.7/";
+    font-family: "/5.5.0/";
   }
 
   meta.foundation-mq-small {
     font-family: "/" + unquote($small-up) + "/";
+    width: lower-bound($small-range);
+  }
+
+  meta.foundation-mq-small-only {
+    font-family: "/" + unquote($small-only) + "/";
     width: lower-bound($small-range);
   }
 
@@ -358,13 +364,28 @@ $cursor-text-value: text !default;
     width: lower-bound($medium-range);
   }
 
+  meta.foundation-mq-medium-only {
+    font-family: "/" + unquote($medium-only) + "/";
+    width: lower-bound($medium-range);
+  }
+
   meta.foundation-mq-large {
     font-family: "/" + unquote($large-up) + "/";
     width: lower-bound($large-range);
   }
 
+  meta.foundation-mq-large-only {
+    font-family: "/" + unquote($large-only) + "/";
+    width: lower-bound($large-range);
+  }
+
   meta.foundation-mq-xlarge {
     font-family: "/" + unquote($xlarge-up) + "/";
+    width: lower-bound($xlarge-range);
+  }
+
+  meta.foundation-mq-xlarge-only {
+    font-family: "/" + unquote($xlarge-only) + "/";
     width: lower-bound($xlarge-range);
   }
 
