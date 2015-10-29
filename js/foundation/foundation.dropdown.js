@@ -4,7 +4,7 @@
   Foundation.libs.dropdown = {
     name : 'dropdown',
 
-    version : '5.5.2',
+    version : '5.5.3',
 
     settings : {
       active_class : 'open',
@@ -13,6 +13,7 @@
       align : 'bottom',
       is_hover : false,
       hover_timeout : 150,
+      no_pip : false,
       opened : function () {},
       closed : function () {}
     },
@@ -275,31 +276,36 @@
         //lets see if the panel will be off the screen
         //get the actual width of the page and store it
         var actualBodyWidth;
+        var windowWidth = window.innerWidth;
+        
         if (document.getElementsByClassName('row')[0]) {
           actualBodyWidth = document.getElementsByClassName('row')[0].clientWidth;
         } else {
-          actualBodyWidth = window.innerWidth;
+          actualBodyWidth = windowWidth;
         }
 
-        var actualMarginWidth = (window.innerWidth - actualBodyWidth) / 2;
+        var actualMarginWidth = (windowWidth - actualBodyWidth) / 2;
         var actualBoundary = actualBodyWidth;
 
         if (!this.hasClass('mega') && !s.ignore_repositioning) {
+          var outerWidth = this.outerWidth();
+          var o_left = t.offset().left;
+		  
           //miss top
           if (t.offset().top <= this.outerHeight()) {
             p.missTop = true;
-            actualBoundary = window.innerWidth - actualMarginWidth;
+            actualBoundary = windowWidth - actualMarginWidth;
             p.leftRightFlag = true;
           }
 
           //miss right
-          if (t.offset().left + this.outerWidth() > t.offset().left + actualMarginWidth && t.offset().left - actualMarginWidth > this.outerWidth()) {
+          if (o_left + outerWidth > o_left + actualMarginWidth && o_left - actualMarginWidth > outerWidth) {
             p.missRight = true;
             p.missLeft = false;
           }
 
           //miss left
-          if (t.offset().left - this.outerWidth() <= 0) {
+          if (o_left - outerWidth <= 0) {
             p.missLeft = true;
             p.missRight = false;
           }
@@ -323,7 +329,7 @@
           p.left = p.left - this.outerWidth() + t.outerWidth();
         }
 
-        if (t.outerWidth() < this.outerWidth() || self.small() || this.hasClass(s.mega_menu)) {
+        if (!self.settings.no_pip && t.outerWidth() < this.outerWidth() || self.small() || this.hasClass(s.mega_menu)) {
           self.adjust_pip(this, t, s, p);
         }
 
@@ -343,7 +349,7 @@
           p.left = p.left - this.outerWidth() + t.outerWidth();
         }
 
-        if (t.outerWidth() < this.outerWidth() || self.small() || this.hasClass(s.mega_menu)) {
+        if (!self.settings.no_pip && t.outerWidth() < this.outerWidth() || self.small() || this.hasClass(s.mega_menu)) {
           self.adjust_pip(this, t, s, p);
         }
 
@@ -383,7 +389,7 @@
 
         var self = Foundation.libs.dropdown;
 
-        if (t.outerWidth() < this.outerWidth() || self.small() || this.hasClass(s.mega_menu)) {
+        if (!self.settings.no_pip && t.outerWidth() < this.outerWidth() || self.small() || this.hasClass(s.mega_menu)) {
           self.adjust_pip(this, t, s, p);
         }
 
@@ -393,6 +399,8 @@
 
     // Insert rule to style psuedo elements
     adjust_pip : function (dropdown, target, settings, position) {
+      if (settings.no_pip === true) return;
+      
       var sheet = Foundation.stylesheet,
           pip_offset_base = 8;
 
