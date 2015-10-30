@@ -6,7 +6,7 @@
 
 // Table of Contents
 // Foundation Settings
-
+//
 // a. Base
 // b. Grid
 // c. Global
@@ -422,7 +422,6 @@ $header-font-color: $primary-color;
 // $crumb-radius: $global-radius;
 
 // We use these to set various text styles for breadcrumbs.
-// $crumb-line-height: rem-calc(11);
 // $crumb-font-size: rem-calc(11);
 // $crumb-font-color: $primary-color;
 // $crumb-font-color-current: $oil;
@@ -433,7 +432,6 @@ $header-font-color: $primary-color;
 // We use these to control the slash between breadcrumbs
 // $crumb-slash-color: $base;
 // $crumb-slash: "/";
-// $crumb-slash-position: 1px;
 
 // 05. Buttons
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -650,7 +648,6 @@ $button-margin-bottom: 0;
 // $input-font-family: inherit;
 // $input-font-color: rgba(0,0,0,0.75);
 // $input-font-size: rem-calc(14);
-// $input-placeholder-font-color: #cccccc;
 // $input-bg-color: $white;
 // $input-focus-bg-color: scale-color($white, $lightness: -2%);
 // $input-border-color: scale-color($white, $lightness: -20%);
@@ -1467,7 +1464,7 @@ $topbar-dropdown-link-bg: $topbar-bg-color;
 // $topbar-transition-speed: 300ms;
 // Using rem-calc for the below breakpoint causes issues with top bar
 //$topbar-breakpoint: #{lower-bound($medium-range)}; // Change to 9999px for always mobile layout
-$topbar-breakpoint: rem-calc(890);
+$topbar-breakpoint: rem-calc(700);
 $topbar-media-query: "#{$screen} and (min-width:#{$topbar-breakpoint})";
 
 // Top-bar input styles
