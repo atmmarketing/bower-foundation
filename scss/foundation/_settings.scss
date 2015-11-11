@@ -122,6 +122,10 @@ $primary-color: #444444;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
+$col-facebook: #3D5B96;
+$col-twitter: #1DADEA;
+$col-pinterest: #D11E16;
+$col-instagram: #004879;
 
 // We use these to control various global styles
 // $body-bg: $white;
@@ -220,12 +224,12 @@ $header-font-color: $primary-color;
 // $header-text-rendering: optimizeLegibility;
 
 // We use these to control header font sizes
-// $h1-font-size: rem-calc(44);
-// $h2-font-size: rem-calc(37);
-// $h3-font-size: rem-calc(27);
-// $h4-font-size: rem-calc(23);
-// $h5-font-size: rem-calc(18);
-// $h6-font-size: 1rem;
+$h6-font-size: 1rem;
+$h5-font-size: $h6-font-size + rem-calc(3);
+$h4-font-size: $h5-font-size + rem-calc(3);
+$h3-font-size: $h4-font-size + rem-calc(5);
+$h2-font-size: $h3-font-size + rem-calc(5);
+$h1-font-size: $h2-font-size + rem-calc(8);
 
 // We use these to control header size reduction on small screens
 // $h1-font-reduction: rem-calc(10);
